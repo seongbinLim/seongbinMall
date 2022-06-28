@@ -23,4 +23,9 @@ class MainController {
         Thread.sleep(2000)
         return ResponseEntity.ok().body("2 sec time out")
     }
+
+    @GetMapping("/health-check")
+    fun check(): ResponseEntity<Any> {
+        return ResponseEntity.ok().body("ok")
+    }
 }
