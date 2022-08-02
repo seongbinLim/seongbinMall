@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.ui.set
 import org.springframework.web.bind.annotation.GetMapping
+import java.io.File
 
 /**
  * @author Seongbin Lim
@@ -26,6 +27,14 @@ class MainController {
 
     @GetMapping("/health-check")
     fun check(): ResponseEntity<Any> {
+        return ResponseEntity.ok().body("ok")
+    }
+
+    @GetMapping("/create-file")
+    fun createFile(): ResponseEntity<Any> {
+        File("filetest.txt").printWriter().use { out ->
+            out.println("create file")
+        }
         return ResponseEntity.ok().body("ok")
     }
 }
